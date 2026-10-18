@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Maybe change title later? -->
+    <title>Physics Simulator</title>
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <h1>Projectile Motion Simulator</h1>
+
+    <!-- container for canvas and control panel -->
+    <div id="app-wrapper">
+        <div id="canvasStack">
+            <canvas id="simulationCanvas" ></canvas>
+            <canvas id="gridSimulationCanvas"></canvas>
+        </div>
+        
+
+        <!-- the right -->
+         
+        <div id="right-panel">
+             <div id = "control-panel">
+                <h3>Conditions</h3>
+                <!-- Velocity -->
+                <div class="control-group">
+                    <label for="velocity-input"><b>Initial Velocity</b></label>
+                    <!-- Button and Input -->
+                     <div class="input-row">
+                        <button class="ctrl-btn micro-btn" id = "velocity-minus10">- -</button>
+                        <button class="ctrl-btn micro-btn" id = "velocity-minus1">-</button>
+                        <input type="number" id="velocity-input" value = "5">
+                        <button class="ctrl-btn micro-btn" id = "velocity-plus1">+</button>
+                        <button class="ctrl-btn micro-btn" id = "velocity-plus10">+ +</button>
+                     </div>
+                    <!-- Slider -->
+                     <input type="range" id = "velocity-slider" min="0" max="10" value = "5">
+                </div>
+                <!-- Launch Angle -->
+                 <div class="control-group">
+                    <label for="angle-input"><b>Launch Angle</b></label>
+             
+                    <div class="input-row" id="angle-row">
+                        <!-- Working on an slider arc -->
+                        <svg viewBox = "0 0 100 100" class="arc-slider" id="angle-dial-svg">
+                            <!--background-->
+                            <path d="M 90 90 A 80 80 0 0 0 10 10 L 10 90 Z" class="dial-background"/>
+                            <!--guidelines-->
+                            <line x1="10" y1="90" x2="90" y2="90" class="guideline-major"/>
+                            <line x1="10" y1="90" x2="10" y2="10" class="guideline-major"/>
+                            <line x1 ="10" y1="90" x2="79" y2="50" class="guideline-minor2"/>
+                            <line x1 ="10" y1="90" x2="50" y2="21" class="guideline-minor2"/>
+                            <line x1 ="10" y1="90" x2="66.5" y2="33.5" class="guideline-minor1"/>
+             
+             
+                            <!-- arc -->
+                            <path d="M 90 90 A 80 80 0 0 0 10 10" class="dial-track"/>
+             
+             
+                            <!-- knob -->
+                            <circle cx="90" cy="90" r="6" class="dial-knob" id = "angle-knob"/>
+                            <!-- maybe put an origin? anyways.. -->
+                            <circle cx="10" cy="90" r="3" id="origin"/>
+             
+                        </svg>
+                        <!-- Now the input for angle, a number -->
+                         <div class="labeled-input">
+                            <input type="number" id="angle-input" value="45"><span id="degree-symbol">&deg;</span>
+                         </div>
+             
+                    </div>
+                </div>
+                <!-- Platform -->
+                 <div class="control-group">
+                    <label for="platform-height-input"><b>Starting Platform</b></label>
+                    <div class="input-row">
+                        <label for="platform-width-slider">Width:</label>
+                        <input type="range" id="platform-width-slider" min="0" max="5" step = "0.5" value="1.5">
+                        <input type="number" id="platform-width-input" value = "1.5">
+                    </div>
+                    <div class="input-row">
+                        <label for="platform-height-slider">Height:</label>
+                        <input type="range" id="platform-height-slider" min="0" max="20" step="0.5" value="1">
+                        <input type="number" id="platform-height-input" value = "1">
+                    </div>
+                </div>
+                <!-- Gravity -->
+                <div class="control-group">
+                    <label for="gravity-dropdown"><b>Gravity</b></label>
+                    <div class="input-row">
+                        <select name="gravity-dropdown" id="gravity-dropdown">
+                            <option value="Mercury">Mercury</option>
+                            <option value="Venus">Venus</option>
+                            <option value="Earth" selected>Earth</option>
+                            <option value="Mars">Mars</option>
+                            <option value="Jupiter">Jupiter</option>
+                            <option value="Saturn">Saturn</option>
+                            <option value="Uranus">Uranus</option>
+                            <option value="Neptune">Neptune</option>
+                            <option value="Pluto">Pluto</option>
+                            <option value="Custom">Custom</option>
+                        </select>
+                        <div> <!--This is to not put space between number and unit-->
+                            <span id="gravity-display">9.81</span>
+                            <input
+                                type="number"
+                                id="gravity-custom-input"
+                                value="9.81"
+                                required
+                                hidden
+                            >
+                            <span class="unit-acceleration">m/s<sup>2</sup></span>
+                        </div>
+             
+                    </div>
+                </div>
+            </div>
+
+            <div id="analysis-panel">
+                <div class="vector-panel">
+                    <h3>Velocity</h3>
+                    <canvas id="velocityCanvas" width="200" height="200"></canvas>
+                </div>
+                <div class="vector-panel">
+                    <h3>Acceleration</h3>
+                    <canvas id="accelerationCanvas" width="200" height="200"></canvas>
+                </div>
+            </div>
+         </div>
+        
+    </div>
+
+
+    <div id="admin-panel">
+        <button id="start-btn">Start</button>
+        <button id="stop-btn">Stop</button>
+        <button id="reset-pos-btn">Reset Position</button>
+    </div>
+    
+    <section >
+        <!-- show work/proof -->
+
+    </section>
+
+    <!-- link to the javascript -->
+    <script src="script.js"></script>
+</body>
+</html>

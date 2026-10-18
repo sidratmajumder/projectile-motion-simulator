@@ -1,0 +1,252 @@
+#canvasStack {
+    position: relative;
+}
+
+#simulationCanvas {
+    border: 2px solid black;
+    background-color: #878CB4;
+    
+}
+
+#gridSimulationCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+body {
+    background-color: #B2CDDF;
+}
+
+
+#admin-panel {
+    display: block;
+}
+
+#admin-panel button {
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+#admin-panel button:hover {
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+#admin-panel button:active {
+    box-shadow: none;
+    transform: scale(0.8);
+}
+
+#start-btn {
+    background-color: #7ceea4f5;
+}
+
+#stop-btn {
+    background-color: #ca4d2ef5;
+    color:#caf6fe;
+}
+
+#reset-pos-btn {
+    background-color:#d6d584;
+}
+
+#app-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#control-panel {
+    background-color: #bdbed3;
+    /* background: conic-gradient(at top, cyan ,magenta , yellow ); */
+    padding: 2px 15px 15px 15px;
+    border-radius: 1px;
+    flex: 0 0 320px;
+    width: 320px;
+    box-sizing: border-box;
+}
+
+#control-panel h3 {
+    color: black;
+    margin-top: 10px;
+}
+
+.ctrl-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.ctrl-btn:hover {
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+
+.ctrl-btn:active {
+    box-shadow: none;
+    transform: scale(0.8);
+}
+
+.control-group {
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.micro-btn {
+    padding: 0px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 40px;
+    aspect-ratio: 1/1;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+input[type="number"] {
+    width: 40px;
+    text-align: center;
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid #171d3e ;
+    border-radius: 5px;
+    background-color: #d5dbe2;
+    color:black;
+}
+/* the above input used to be for velocity, but now that we have an angle I'll be styling the same */
+
+#velocity-slider {
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+#angle-dial-svg {
+    background-color:none;
+    width: 300px;
+    height: auto;
+    max-width: 100%;
+    margin: 5px;
+    display: block;
+    /* put it inside something else, then change to inline */
+}
+
+#angle-row {
+    justify-content: center;
+    gap: 10px;
+}
+.guideline-major {
+    stroke: #EAF1F1;
+    stroke-width: 1;
+}
+
+.guideline-minor2 {
+    stroke: #1b2f8d;
+    stroke-width: 1;
+}
+
+.guideline-minor1 {
+    stroke: #090f49;
+    stroke-width: 1;
+}
+
+.dial-track {
+    fill: none; /* to get rid of the fill */
+    stroke: #171d3e;
+    stroke-width: 2;
+    stroke-linecap: butt;
+}
+
+.dial-background {
+    fill: #557392;
+    stroke: none;
+    stroke-linecap: butt;
+}
+
+.dial-knob {
+    cursor: pointer;
+    fill: #caf6fe;
+    
+    border-width: 2px;
+    border-color: #f5eff0;
+}
+
+#angle-input {
+    margin-right: 0px;
+}
+
+
+.labeled-input {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+#right-panel {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 25px;
+
+}
+
+#analysis-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 0 0 300px;
+}
+
+#analysis-panel h3 {
+    margin: 10px 0 12px 0;
+}
+#analysis-panel canvas {
+    display:block;
+}
+.vector-panel {
+    background-color: #B2CDDF;
+    padding: 2px 0 10px 0;
+    box-sizing: border-box;
+    width: 300px;
+}
+.vector-panel canvas {
+    display: block;
+    width: 300px;
+    border: 1px solid white;
+    background-color: #D3C4D2;
+}
+#accelerationCanvas {
+    margin-top: 0;
+}
